@@ -1,0 +1,38 @@
+<div class=" mt-5 flex flex-col gap-2">
+  <span>Order List</span>
+</div>
+
+<hr class="text-gray-500 my-4">
+
+<div class="flex flex-col h-full gap-2">
+  <div class="flex flex-row items-center justify-center gap-4">
+    <mat-button-toggle-group name="fontStyle">
+      <mat-button-toggle value="dine_in">Dine in</mat-button-toggle>
+      <mat-button-toggle value="take_away">Take Away</mat-button-toggle>
+      <mat-button-toggle value="delivery">Delivery</mat-button-toggle>
+    </mat-button-toggle-group>    
+  </div>
+  <div class="flex flex-col h-[40%] overflow-y-scroll gap-2">
+  <div *ngFor="let item of ItemData">
+      <div *ngIf="item.quantity > 0" class="w-full flex flex-row gap-2 h-28 bg-white rounded-2xl shadow-xl p-2 hover:border-2 hover:border-green-500">
+      <div class="flex items-center p-4">
+            <img class="h-8 w-20" [src]="productpath + item.icon" alt="">
+        </div>
+      <div class="flex flex-col justify-between">
+        <div class="px-4">
+          <span class="text-lg">{{ item.name }}</span>
+        </div>
+        <div class="flex flex-row justify-between">
+          <span class="text-green-400">{{ item.price}} * {{item.quantity}} = {{item.price * item.quantity}}</span>
+          <span>{{ item.type}}</span>
+        </div>
+    </div>
+    </div>
+  </div>
+  </div>
+  <div class="flex flex-col shadow-xl bg-gray-200 p-4 rounded-lg gap-2">
+    <div class="text-sm">
+      <span>Sub total</span>
+    </div>
+  </div>
+</div>

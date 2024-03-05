@@ -1,0 +1,104 @@
+
+<div class="bg-gray-200 p-4 flex flex-col gap-4">
+    <div class="flex flex-row gap-4 w-[100%] items-center justify-center">
+      <div class="p-1 bg-white rounded shadow-md ">
+        <mat-icon class="shadow-xl">menu</mat-icon>
+      </div>
+      <div class="flex flex-row gap-2 w-[100%] items-center text-gray-700 bg-white rounded shadow-md ">
+        <mat-icon class="flex item-center w-[10%]">search</mat-icon>
+        <input
+        class="text-sm appearance-none rounded w-full py-2 px-3 text-gray-700 bg-gray-100 leading-tight focus:outline-none focus:shadow-outline h-10"
+        id="name" name="name"
+        type="text"
+        placeholder="Search"/>
+      </div>
+      <div class="p-1 bg-white rounded shadow-md">
+        <mat-icon>filter_list</mat-icon>
+      </div>
+    </div>
+    
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4">
+      <div *ngFor="let item of grid1" class=" bg-white rounded-2xl shadow-xl p-2 flex flex-col">
+        <div class="flex items-start p-2">
+          <img class="h-10 w-10" [src]="path + item.icon" alt="">
+        </div>
+        <div class="px-2">
+          <span class="font-light text-md">{{ item.name }}</span>
+        </div>
+      </div>
+    </div>
+
+      <!-- <div class="flex flex-row gap-4"> -->
+      <!-- <div *ngFor="let item of grid1" class="w-42 h-48 mr-3 bg-white rounded-2xl shadow-xl p-2">
+        <div class="flex items-center p-8">
+            <img class="h-10 w-10" [src]="path + item.icon" alt="">
+        </div>
+        <div class="px-4">
+          <span class="font-light text-lg">{{ item.name }}</span>
+        </div>
+      </div>
+    </div> -->
+
+    <!-- <div class="grid grid-cols-4 gap-4">
+        <div *ngFor="let item of grid2" class="w-48 h-54 bg-white rounded-2xl shadow-xl p-2 hover:border-2 hover:border-green-500">
+          <div class="flex items-center p-4">
+              <img class="h-full w-full" [src]="productpath + item.icon" alt="">
+          </div>
+          <div class="px-4">
+            <span class="text-lg">{{ item.name }}</span>
+          </div>
+          <div class=" flex flex-row justify-between">
+            <span class="text-green-400">{{ item.price}}</span>
+            <span>{{ item.type}}</span>
+          </div>
+          <div *ngIf="item.quantity == 0" class=" text-center px-4">
+            <button (click)="addDish(item);" class="bg-green-200 w-full h-6 rounded-lg text-sm text-gray-900">Add to Dish</button>
+          </div>
+          <div *ngIf="item.quantity > 0" class="bg-green-100 w-full h-6 rounded-lg ">
+            <div class="flex flex-row items-center justify-between px-4 ">
+                <div class="text-center flex flex-row justify-center items-center  bg-green-500 h-4 w-4 rounded-full">
+                    <button *ngIf="item.quantity > 0" class="text-lg text-white" (click)="decrement(item)">-</button>
+                </div>
+                <div>{{ item.quantity }}</div>
+                <div class="text-center  flex flex-row justify-center items-center  h-4 w-4 bg-green-500 rounded-full">
+                    <button class="text-lg text-white" (click)="increment(item)">+</button>
+                </div>
+            </div>
+          </div>
+        </div>
+    </div> -->
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+      <div *ngFor="let item of grid2" class="bg-white rounded-2xl shadow-md p-2 hover:border-2 hover:border-green-500">
+        <div class="flex items-center p-4">
+          <img class="h-full w-full" [src]="productpath + item.icon" alt="">
+        </div>
+        <div class="px-4">
+          <span class="text-sm">{{ item.name }}</span>
+        </div>
+        <div class="flex px-4 flex-row my-2 justify-between">
+          <span class="text-green-400">₹{{ item.price }}</span>
+          <span class="text-xs text-gray-500" >{{ item.type }}</span>
+        </div>
+        <div *ngIf="item.quantity == 0" class="text-center px-4">
+          <button (click)="addDish(item);" class="bg-green-200 w-full h-6 rounded-lg text-sm text-gray-900">Add to Dish</button>
+        </div>
+        <div *ngIf="item.quantity > 0" class="bg-green-100 rounded-lg">
+          <div class="flex flex-row items-center justify-between px-4 ">
+            <div class="text-center flex flex-row justify-center items-center  bg-green-500 h-4 w-4 rounded-full">
+              <button *ngIf="item.quantity > 0" class="text-lg text-white" (click)="decrement(item)">-</button>
+            </div>
+            <div>{{ item.quantity }}</div>
+            <div class="text-center  flex flex-row justify-center items-center  h-4 w-4 bg-green-500 rounded-full">
+              <button class="text-lg text-white" (click)="increment(item)">+</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>    
+  </div>
+  
+  
+
+
+
